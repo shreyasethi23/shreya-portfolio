@@ -34,7 +34,7 @@ export default function Hero() {
             Connect on LinkedIn
           </a>
           <a
-            href="/Resume_Shreya_Sethi.pdf"
+            href={`${import.meta.env.BASE_URL}Resume_Shreya_Sethi.pdf`}
             download
             target="_blank"
             rel="noopener noreferrer"
