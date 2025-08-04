@@ -1,0 +1,21 @@
+html {
+  font-size: 18px; /* Default is 16px — increase this to make everything larger */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc; /* light background if needed */
+  color: #1e293b;
+  line-height: 1.6;
+}
+.app-container  {
+  min-height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0f4ff, #fef6ff, #fef9f9); /* soft blue-violet-cream */
+  color: #1e293b; /* dark slate text for good readability */
+  display: flex;
+  flex-direction: column;
+
+}
+
