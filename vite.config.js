@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/shreya-portfolio/', // 👈 Your repo name
-});
+  // Use root base path locally, GitHub Pages base in production builds.
+  base: command === 'serve' ? '/' : '/shreya-portfolio/',
+}));
