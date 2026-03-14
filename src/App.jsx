@@ -32,6 +32,18 @@ const experiences = [
 
 const projects = [
   {
+    title: 'FindLy - Local Multimodal Semantic Search',
+    summary:
+      'Built a full-stack local semantic search application for relevance-ranked retrieval across personal text and image files.',
+    bullets: [
+      'Built a 3-process local search system (React 19 frontend, FastAPI API, Redis-backed Python worker) to index personal files and return relevance-ranked text/image results.',
+      'Designed async indexing with a Redis BLPOP queue model and real-time /index/status polling, driving live 0-100% progress updates in the UI.',
+      'Implemented dual persistent FAISS indexes (384-dim text, 512-dim image) with SQLite metadata, plus idempotent re-indexing, file-deletion handling, and path-scoped filtering.',
+      'Added a watchdog daemon that auto-syncs the index on 4 filesystem events (create/modify/delete/move) and expanded frontend component tests with Jest + Testing Library.',
+    ],
+    tech: ['React 19', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
+  },
+  {
     title: 'Assessing Unintended Memorization in Language Models',
     summary:
       'Evaluates unintended memorization and semantic leakage in language models under multiple training settings.',
@@ -74,59 +86,56 @@ const projects = [
 
 const skillGroups = [
   {
-    title: 'Frontend Engineering',
+    title: 'Frontend',
     items: [
-      'React',
-      'JavaScript (ES6+)',
+      'React 19',
       'TypeScript',
+      'Vite',
+      'JavaScript (ES6+)',
       'HTML5 / CSS3',
+      'gsap',
       'Responsive UI Design',
       'Component Architecture',
     ],
   },
   {
-    title: 'Backend and Core Programming',
+    title: 'Backend',
     items: [
-      'Node.js',
-      'REST APIs',
       'Python',
-      'Java',
+      'FastAPI',
+      'REST APIs',
+      'Redis',
       'SQL',
-      'Data Structures and Algorithms',
-      'Object-Oriented Programming',
-      'System Design Fundamentals',
+      'Pydantic',
+      'Uvicorn',
+      'Asynchronous Worker Queues',
+      'BLPOP Queue Model',
+      'SQLite',
+      'Node.js',
     ],
   },
   {
-    title: 'Machine Learning and AI',
+    title: 'AI / ML',
     items: [
       'PyTorch',
-      'TensorFlow',
-      'Scikit-learn',
       'NLP and LLMs',
-      'Transformers',
-      'Prompt Engineering',
-      'Model Training and Fine-tuning',
-      'Feature Engineering',
-      'Model Evaluation',
-      'Fairness and Bias Analysis',
-      'Differential Privacy Concepts',
+      'Semantic Search',
+      'Multimodal Retrieval',
+      'FAISS Vector Similarity Search',
+      'Embedding Pipelines',
+      'NumPy',
+      'SQLite',
     ],
   },
   {
-    title: 'Data and Experimentation',
-    items: ['Pandas', 'NumPy', 'Data Preprocessing', 'Experiment Tracking', 'A/B Testing Basics'],
-  },
-  {
-    title: 'Engineering Practices',
+    title: 'Testing and Tools',
     items: [
       'Unit Testing',
       'Component Testing',
-      'Debugging and Problem Solving',
-      'CI/CD Basics',
+      'Jest',
+      '@testing-library/react',
+      'ESLint',
       'Git and GitHub',
-      'Agile Development',
-      'Cross-functional Collaboration',
     ],
   },
 ];
@@ -248,14 +257,23 @@ function App() {
                 <article key={project.title} className="card project">
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
+                  {project.bullets ? (
+                    <ul>
+                      {project.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                   <div className="chips">
                     {project.tech.map((tech) => (
                       <span key={tech}>{tech}</span>
                     ))}
                   </div>
-                  <a href={project.link} target="_blank" rel="noreferrer">
-                    View code
-                  </a>
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noreferrer">
+                      View code
+                    </a>
+                  ) : null}
                 </article>
               ))}
             </div>
@@ -265,7 +283,7 @@ function App() {
         <section id="skills" className="section">
           <div className="container">
             <div className="section-head">
-              <h2>Best Skills</h2>
+              <h2>Skills</h2>
             </div>
             <div className="grid two skill-grid">
               {skillGroups.map((group) => (
