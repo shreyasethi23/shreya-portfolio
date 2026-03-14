@@ -35,12 +35,6 @@ const projects = [
     title: 'FindLy - Local Multimodal Semantic Search',
     summary:
       'Built a full-stack local semantic search application for relevance-ranked retrieval across personal text and image files.',
-    bullets: [
-      'Built a 3-process local search system (React 19 frontend, FastAPI API, Redis-backed Python worker) to index personal files and return relevance-ranked text/image results.',
-      'Designed async indexing with a Redis BLPOP queue model and real-time /index/status polling, driving live 0-100% progress updates in the UI.',
-      'Implemented dual persistent FAISS indexes (384-dim text, 512-dim image) with SQLite metadata, plus idempotent re-indexing, file-deletion handling, and path-scoped filtering.',
-      'Added a watchdog daemon that auto-syncs the index on 4 filesystem events (create/modify/delete/move) and expanded frontend component tests with Jest + Testing Library.',
-    ],
     tech: ['React 19', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
   },
   {
@@ -257,13 +251,6 @@ function App() {
                 <article key={project.title} className="card project">
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
-                  {project.bullets ? (
-                    <ul>
-                      {project.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  ) : null}
                   <div className="chips">
                     {project.tech.map((tech) => (
                       <span key={tech}>{tech}</span>
