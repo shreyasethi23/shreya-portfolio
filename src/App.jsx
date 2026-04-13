@@ -8,6 +8,8 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
+const stackPreview = ['React', 'TypeScript', 'Python', 'FastAPI', 'PyTorch'];
+
 const experiences = [
   {
     role: 'Software Developer',
@@ -139,8 +141,11 @@ function App() {
     <div className="site">
       <header className="topbar">
         <div className="container nav">
-          <a href="#" className="logo">Shreya Sethi</a>
-          <nav>
+          <a href="#top" className="logo">
+            <span className="logo-mark" aria-hidden="true" />
+            Shreya Sethi
+          </a>
+          <nav aria-label="Primary">
             <ul>
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -152,18 +157,20 @@ function App() {
         </div>
       </header>
 
-      <main>
-        <section className="hero">
-          <div className="hero-glow hero-glow-a" />
-          <div className="hero-glow hero-glow-b" />
-          <div className="container">
-            <article className="hero-card simple-hero">
-              <p className="kicker">Open to SWE and MLE opportunities</p>
-              <h1>Software Engineer with frontend and machine learning experience.</h1>
-              <p>
-                I have worked on customer-facing product features at J.P. Morgan and built applied
-                ML projects in fairness, privacy, and generative AI while pursuing my MS in
-                Computer Science at USC.
+      <main id="top">
+        <section className="hero" aria-labelledby="hero-heading">
+          <div className="container hero-inner">
+            <div className="hero-copy">
+              <p className="eyebrow">Open to opportunities</p>
+              <div className="stack-pills" aria-label="Core stack">
+                {stackPreview.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </div>
+              <h1 id="hero-heading">Software engineer building thoughtful interfaces and ML systems.</h1>
+              <p className="hero-lede">
+                I ship customer-facing product features and applied ML work across fairness, privacy,
+                and generative AI — currently completing my MS in Computer Science at USC.
               </p>
               <div className="actions">
                 <a
@@ -173,32 +180,47 @@ function App() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Resume
+                  Download resume
                 </a>
                 <a
-                  className="btn primary"
+                  className="btn ghost"
                   href="https://www.linkedin.com/in/shreyasethi23/"
                   target="_blank"
                   rel="noreferrer"
                 >
                   LinkedIn
                 </a>
-                <a
-                  className="btn primary"
-                  href="https://github.com/shreyasethi23"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a className="btn ghost" href="https://github.com/shreyasethi23" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </div>
-            </article>
+            </div>
+            <aside className="code-window" aria-label="Example snippet">
+              <div className="code-window-bar">
+                <span className="code-window-dot" />
+                <span className="code-window-dot" />
+                <span className="code-window-dot" />
+                <span className="code-window-title">portfolio.tsx</span>
+              </div>
+              <pre className="code-window-body">
+                <span className="cm">// ship, measure, iterate</span>
+                {'\n'}
+                <span className="kw">const</span> focus = <span className="str">&apos;product + ML&apos;</span>;{'\n'}
+                <span className="kw">export</span> <span className="kw">const</span> <span className="fn">build</span>
+                {' = () => ({'}
+                {'\n  '}
+                craft: <span className="str">&apos;accessible UI&apos;</span>,{'\n  '}
+                systems: <span className="str">&apos;reliable APIs&apos;</span>
+                {'\n});'}
+              </pre>
+            </aside>
           </div>
         </section>
 
         <section id="education" className="section alt">
           <div className="container">
             <div className="section-head">
+              <span className="section-label">01 — Background</span>
               <h2>Education</h2>
             </div>
             <div className="grid two">
@@ -210,9 +232,7 @@ function App() {
               <article className="card">
                 <p className="card-meta">Jul 2019 - May 2023</p>
                 <h3>Thapar Institute of Engineering and Technology</h3>
-                <p className="card-sub">
-                  B.E. Electronics and Communication | GPA: 9.07/10
-                </p>
+                <p className="card-sub">B.E. Electronics and Communication | GPA: 9.07/10</p>
               </article>
             </div>
           </div>
@@ -221,8 +241,9 @@ function App() {
         <section id="experience" className="section">
           <div className="container">
             <div className="section-head">
-              <h2>Experience</h2>
-              <p>Production engineering work with measurable customer and platform impact.</p>
+              <span className="section-label">02 — Experience</span>
+              <h2>Where I&apos;ve shipped</h2>
+              <p>Production engineering with measurable customer and platform impact.</p>
             </div>
             <div className="grid two">
               {experiences.map((item) => (
@@ -244,7 +265,9 @@ function App() {
         <section id="projects" className="section alt">
           <div className="container">
             <div className="section-head">
+              <span className="section-label">03 — Selected work</span>
               <h2>Projects</h2>
+              <p>From full-stack apps to research-style ML experiments.</p>
             </div>
             <div className="grid two">
               {projects.map((project) => (
@@ -258,7 +281,7 @@ function App() {
                   </div>
                   {project.link ? (
                     <a href={project.link} target="_blank" rel="noreferrer">
-                      View code
+                      View repository →
                     </a>
                   ) : null}
                 </article>
@@ -270,7 +293,9 @@ function App() {
         <section id="skills" className="section">
           <div className="container">
             <div className="section-head">
+              <span className="section-label">04 — Toolkit</span>
               <h2>Skills</h2>
+              <p>Stack I use to design interfaces, ship APIs, and train or evaluate models.</p>
             </div>
             <div className="grid two skill-grid">
               {skillGroups.map((group) => (
@@ -287,18 +312,19 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section">
+        <section id="contact" className="section alt">
           <div className="container">
             <div className="section-head">
-              <h2>Contact</h2>
+              <span className="section-label">05 — Contact</span>
+              <h2>Let&apos;s talk</h2>
             </div>
             <div className="contact-shell">
               <article className="card contact-card">
-                <p className="contact-kicker">Let&apos;s connect</p>
-                <h3>Open to SWE and MLE opportunities</h3>
+                <p className="contact-kicker">Open to SWE and MLE roles</p>
+                <h3>Product-driven teams welcome</h3>
                 <p>
-                  I am looking for product-driven teams where I can contribute across frontend
-                  engineering and machine learning systems.
+                  I&apos;m interested in roles where I can contribute across frontend engineering and
+                  machine learning systems.
                 </p>
                 <div className="contact-methods">
                   <p>
@@ -322,7 +348,11 @@ function App() {
                 </div>
               </article>
 
-              <form action="https://formspree.io/f/mqalddzr" method="POST" className="card contact-form">
+              <form
+                action="https://formspree.io/f/mqalddzr"
+                method="POST"
+                className="card contact-form"
+              >
                 <label htmlFor="name">Name</label>
                 <input id="name" name="name" type="text" placeholder="Your name" required />
 
@@ -348,8 +378,9 @@ function App() {
       </main>
 
       <footer className="footer">
-        <div className="container">
+        <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Shreya Sethi</p>
+          <p className="footer-note">Built with React · Vite · CSS</p>
         </div>
       </footer>
     </div>
