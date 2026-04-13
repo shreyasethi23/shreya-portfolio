@@ -380,7 +380,9 @@ function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Shreya Sethi</p>
-          <p className="footer-note">Built with React · Vite · CSS</p>
+          <p className="footer-note">
+            React · Vite · CSS · bundle {__SITE_UPDATED__}
+          </p>
         </div>
       </footer>
     </div>
