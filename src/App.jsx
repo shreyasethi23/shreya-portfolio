@@ -177,7 +177,7 @@ function App() {
                 </a>
                 <a
                   className="btn primary"
-                  href="https://www.linkedin.com/in/shreya-sethi-8b93031b1/"
+                  href="https://www.linkedin.com/in/shreyasethi23/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -308,11 +308,11 @@ function App() {
                   <p>
                     <span>LinkedIn</span>
                     <a
-                      href="https://www.linkedin.com/in/shreya-sethi-8b93031b1/"
+                      href="https://www.linkedin.com/in/shreyasethi23/"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      shreya-sethi-8b93031b1
+                      shreyasethi23
                     </a>
                   </p>
                   <p>
