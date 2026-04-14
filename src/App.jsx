@@ -365,69 +365,93 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section alt alt--cool">
+        <section id="contact" className="section alt alt--cool section-contact">
           <div className="container">
-            <div className="section-head">
+            <header className="contact-intro-band">
               <h2>Let&apos;s talk</h2>
-              <p>
-                Whether the role is mostly SWE, mostly ML, or a mix, I&apos;d like to hear what you are
-                building.
+              <p className="contact-intro-text">
+                Thanks for spending time here. I&apos;m genuinely glad you stopped by—if anything
+                resonated or you&apos;d simply like to say hello, I&apos;d love to hear from you. Use
+                the links or send a note below; I read everything and reply when I can.
               </p>
-            </div>
+            </header>
             <div className="contact-shell">
-              <article className="card contact-card">
-                <p className="contact-kicker">SWE, MLE, or hybrid</p>
-                <h3>Teams shipping real products + models</h3>
-                <p>
-                  I&apos;m looking for roles where engineering quality and ML rigor both matter: clear
-                  APIs, thoughtful UX, and models you can measure and trust.
-                </p>
-                <div className="contact-methods">
-                  <p>
-                    <span>Email</span>
-                    <a href="mailto:shreyasethi1.ss@gmail.com">shreyasethi1.ss@gmail.com</a>
-                  </p>
-                  <p>
-                    <span>LinkedIn</span>
-                    <a
-                      href="https://www.linkedin.com/in/shreyasethi23/"
-                      target="_blank"
-                      rel="noreferrer"
+              <article className="card contact-panel">
+                <div className="contact-panel-grid">
+                  <div className="contact-panel-col contact-panel-col--links">
+                    <p className="contact-kicker">Reach me</p>
+                    <ul className="contact-channels" role="list">
+                      <li className="contact-channel">
+                        <span className="contact-channel-label">Email</span>
+                        <a className="contact-channel-value" href="mailto:shreyasethi1.ss@gmail.com">
+                          shreyasethi1.ss@gmail.com
+                        </a>
+                      </li>
+                      <li className="contact-channel">
+                        <span className="contact-channel-label">LinkedIn</span>
+                        <a
+                          className="contact-channel-value"
+                          href="https://www.linkedin.com/in/shreyasethi23/"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          linkedin.com/in/shreyasethi23
+                        </a>
+                      </li>
+                      <li className="contact-channel">
+                        <span className="contact-channel-label">GitHub</span>
+                        <a
+                          className="contact-channel-value"
+                          href="https://github.com/shreyasethi23"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          github.com/shreyasethi23
+                        </a>
+                      </li>
+                      <li className="contact-channel">
+                        <span className="contact-channel-label">Location</span>
+                        <span className="contact-channel-static">Los Angeles, CA</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="contact-panel-col contact-panel-col--form">
+                    <p className="contact-kicker">Write to me</p>
+                    <h3 className="contact-panel-form-title">Send a message</h3>
+                    <form
+                      action="https://formspree.io/f/mqalddzr"
+                      method="POST"
+                      className="contact-form"
                     >
-                      shreyasethi23
-                    </a>
-                  </p>
-                  <p>
-                    <span>Location</span>
-                    <strong>Los Angeles, CA</strong>
-                  </p>
+                      <label htmlFor="name">Name</label>
+                      <input id="name" name="name" type="text" placeholder="Your name" autoComplete="name" required />
+
+                      <label htmlFor="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        autoComplete="email"
+                        required
+                      />
+
+                      <label htmlFor="message">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Say hello, ask something, or leave a note."
+                        required
+                      />
+
+                      <button type="submit" className="btn primary">
+                        Send message
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </article>
-
-              <form
-                action="https://formspree.io/f/mqalddzr"
-                method="POST"
-                className="card contact-form"
-              >
-                <label htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" required />
-
-                <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
-
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me about the role or collaboration."
-                  required
-                />
-
-                <button type="submit" className="btn primary">
-                  Send message
-                </button>
-              </form>
             </div>
           </div>
         </section>
