@@ -1,3 +1,4 @@
+import { FaGithub } from 'react-icons/fa';
 import './index.css';
 
 const navLinks = [
@@ -41,7 +42,6 @@ const projects = [
   {
     title: 'FindLy (Local Multimodal Semantic Search)',
     eyebrow: 'Full-stack product',
-    featured: true,
     summary:
       'Full-stack app to index local files and search with text or images: React and TypeScript UI, FastAPI and Redis-backed workers, FAISS and SQLite for vectors and metadata.',
     tech: ['React', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
@@ -307,10 +307,7 @@ function App() {
             </div>
             <div className="grid two projects-grid">
               {projects.map((project) => (
-                <article
-                  key={project.title}
-                  className={`card project${project.featured ? ' project--featured' : ''}`}
-                >
+                <article key={project.title} className="card project">
                   <p className="project-eyebrow">{project.eyebrow}</p>
                   <h3>{project.title}</h3>
                   <p className="project-summary">{project.summary}</p>
@@ -326,10 +323,10 @@ function App() {
                         href={project.link}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`Open repository ${githubRepoPath(project.link)} on GitHub`}
+                        aria-label={`View repository ${githubRepoPath(project.link)} on GitHub`}
                       >
-                        <span className="project-link-label">GitHub</span>
-                        <span className="project-link-path">{githubRepoPath(project.link)}</span>
+                        <FaGithub className="project-link-icon" aria-hidden />
+                        <span className="project-link-text">View on GitHub</span>
                       </a>
                     ) : (
                       <p className="project-private">Repository not public</p>
