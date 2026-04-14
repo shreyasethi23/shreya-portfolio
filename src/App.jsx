@@ -8,75 +8,91 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const stackPreview = ['React', 'TypeScript', 'Python', 'FastAPI', 'PyTorch'];
-
 const experiences = [
   {
-    role: 'Software Developer',
-    company: 'J.P. Morgan Chase & Co.',
-    duration: 'Jul 2023 - Aug 2024',
+    role: 'Software Engineer',
+    company: 'JPMorgan Chase & Co.',
+    location: 'Bangalore, India',
+    duration: 'July 2023 – July 2024',
     points: [
-      'Built customer-facing features for the Digital Self Service platform used by 50M+ users.',
-      'Developed reusable web components across web and hybrid mobile, reducing duplication by 30%.',
-      'Improved reliability through unit and component testing with 95%+ coverage.',
+      "Engineered and shipped production features including OTP authentication, overdraft protection, and check ordering for Chase's Digital Self Service platform, serving 50M+ users across web and native mobile via JS bridge.",
+      'Developed ADA/WCAG-compliant UI components in TypeScript and React, with the same codebase deployed seamlessly across web and hybrid mobile platforms.',
+      'Drove unit and integration test coverage to 95%+, reducing production defects and ensuring release stability across quarterly Agile sprints.',
+      'Integrated REST APIs into frontend components, partnering with QA and product teams across 35+ Agile sprints to deliver production features with consistent on-time release cadence.',
     ],
   },
   {
-    role: 'Software Developer Intern',
-    company: 'J.P. Morgan Chase & Co.',
-    duration: 'Jan 2023 - Jun 2023',
+    role: 'Software Engineer Intern',
+    company: 'JPMorgan Chase & Co.',
+    location: 'Bangalore, India',
+    duration: 'January 2023 – June 2023',
     points: [
-      'Implemented UI features for web and mobile journeys with responsive, accessible interactions.',
-      'Collaborated in sprint cycles with cross-functional partners to deliver production-ready releases.',
+      'Implemented responsive, ADA-compliant UI features and REST API integrations for Chase web and mobile platforms as part of the same Digital Self Service team.',
     ],
   },
 ];
 
+function githubRepoPath(url) {
+  const m = String(url).match(/github\.com\/([\w-]+\/[\w.-]+)/);
+  return m ? m[1] : '';
+}
+
 const projects = [
   {
-    title: 'FindLy - Local Multimodal Semantic Search',
+    title: 'FindLy (Local Multimodal Semantic Search)',
+    eyebrow: 'Full-stack product',
+    featured: true,
     summary:
-      'Built a full-stack local semantic search application for relevance-ranked retrieval across personal text and image files.',
-    tech: ['React 19', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
-  },
-  {
-    title: 'Assessing Unintended Memorization in Language Models',
-    summary:
-      'Evaluates unintended memorization and semantic leakage in language models under multiple training settings.',
-    tech: ['NLP', 'LSTM', 'Differential Privacy', 'Evaluation'],
-    link: 'https://github.com/shreyasethi23/llm-memorization',
-  },
-  {
-    title: 'Uncovering Bias in Clinical Text with LLMs',
-    summary:
-      'Fairness-focused LLM analysis project for identifying and mitigating demographic bias in clinical text.',
-    tech: ['ClinicalBERT', 'BioGPT', 'PyTorch', 'Fairness Metrics'],
-    link: 'https://github.com/shreyasethi23/Bias-Detection-in-LLMs',
-  },
-  {
-    title: 'Music Genre Transformation Using Deep Generative Architectures',
-    summary: 'Deep learning based music genre transformation experiments and model comparisons.',
-    tech: ['PyTorch', 'Transformers', 'GANs', 'VAEs', 'Audio ML'],
-    link: 'https://github.com/shreyasethi23/Music-Genre-Transformation',
-  },
-  {
-    title: 'Personal Portfolio Website',
-    summary:
-      'A modern React portfolio website showcasing software engineering and machine learning work with responsive UI design.',
-    tech: ['React', 'JavaScript', 'Vite', 'CSS'],
-    link: 'https://github.com/shreyasethi23/shreya-portfolio',
+      'Full-stack app to index local files and search with text or images: React and TypeScript UI, FastAPI and Redis-backed workers, FAISS and SQLite for vectors and metadata.',
+    tech: ['React', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
   },
   {
     title: 'Semantic Book Recommender',
-    summary: 'Semantic recommendation system project for finding books based on meaning-aware search.',
-    tech: ['Semantic Search', 'Embeddings', 'Recommendation System'],
+    eyebrow: 'Full-stack app',
+    summary:
+      'Meaning-based book discovery with a TypeScript UI and Python backend: embeddings, similarity search, and a small full-stack surface you can run end to end.',
+    tech: ['TypeScript', 'Python', 'Embeddings', 'Semantic search', 'CSS'],
     link: 'https://github.com/shreyasethi23/semantic-book-recommender',
   },
   {
+    title: 'Assessing Unintended Memorization in Language Models',
+    eyebrow: 'ML research',
+    summary:
+      'Notebook-driven study of unintended memorization and semantic leakage in language models across training setups, with evaluation and privacy-relevant analysis.',
+    tech: ['Python', 'Jupyter', 'NLP', 'Evaluation', 'Privacy'],
+    link: 'https://github.com/shreyasethi23/llm-memorization',
+  },
+  {
+    title: 'Bias Detection in Clinical Text (LLMs)',
+    eyebrow: 'ML research',
+    summary:
+      'Clinical NLP and fairness angle: exploring demographic bias in medical text with transformer models and metrics suited to sensitive domains.',
+    tech: ['Jupyter', 'Clinical NLP', 'PyTorch', 'Fairness', 'LLMs'],
+    link: 'https://github.com/shreyasethi23/Bias-Detection-in-LLMs',
+  },
+  {
+    title: 'Music Genre Transformation (Generative Models)',
+    eyebrow: 'ML research',
+    summary:
+      'Audio ML experiments with deep generative models: genre style transfer, architecture comparisons, and training loops in notebook form.',
+    tech: ['Python', 'Jupyter', 'PyTorch', 'Audio ML', 'GANs / VAEs'],
+    link: 'https://github.com/shreyasethi23/Music-Genre-Transformation',
+  },
+  {
     title: 'Medical Assistant Chatbot',
-    summary: 'Combines chest X-ray image classification with a medical question-answering chatbot.',
-    tech: ['Healthcare AI', 'Computer Vision', 'NLP', 'Chatbot'],
+    eyebrow: 'ML / multimodal',
+    summary:
+      'Multimodal health AI demo: chest X-ray classification together with a medical Q&A style chatbot, tying vision models to language in one workflow.',
+    tech: ['Python', 'Jupyter', 'Computer vision', 'NLP', 'Healthcare AI'],
     link: 'https://github.com/shreyasethi23/medical-assistant-chatbot',
+  },
+  {
+    title: 'Portfolio Site (this site)',
+    eyebrow: 'This site',
+    summary:
+      'This portfolio: React, Vite, and plain CSS, deployed on GitHub Pages. Structured sections, responsive layout, and resume download.',
+    tech: ['React', 'Vite', 'JavaScript', 'CSS', 'GitHub Pages'],
+    link: 'https://github.com/shreyasethi23/shreya-portfolio',
   },
 ];
 
@@ -161,41 +177,37 @@ function App() {
         <section className="hero" aria-labelledby="hero-heading">
           <div className="container hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow">Open to opportunities</p>
-              <div className="stack-pills" aria-label="Core stack">
-                {stackPreview.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-              <h1 id="hero-heading">Software engineer building thoughtful interfaces and ML systems.</h1>
+              <p className="eyebrow">Software and machine learning engineering</p>
+              <h1 id="hero-heading">
+                Clear interfaces, dependable services, and ML that works in production.
+              </h1>
               <p className="hero-lede">
-                I ship customer-facing product features and applied ML work across fairness, privacy,
-                and generative AI — currently completing my MS in Computer Science at USC.
+                I care about how software feels to users, how APIs hold up over time, and how models
+                are trained, evaluated, and deployed responsibly. My graduate studies in Computer Science
+                at USC build on that same focus, with more depth in machine learning and software engineering systems.
               </p>
               <div className="actions">
                 <a
                   className="btn primary"
-                  href={`${import.meta.env.BASE_URL}Shreya_Sethi_Resume.pdf`}
+                  href={`${import.meta.env.BASE_URL}Resume_Shreya.pdf`}
                   download
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Download resume PDF"
                 >
-                  Download resume
+                  Resume
                 </a>
                 <a
-                  className="btn ghost"
+                  className="btn primary"
                   href="https://www.linkedin.com/in/shreyasethi23/"
                   target="_blank"
                   rel="noreferrer"
                 >
                   LinkedIn
                 </a>
-                <a className="btn ghost" href="https://github.com/shreyasethi23" target="_blank" rel="noreferrer">
-                  GitHub
-                </a>
               </div>
             </div>
-            <aside className="code-window" aria-label="Example snippet">
+            <aside className="code-window code-window--dark" aria-label="Example snippet">
               <div className="code-window-bar">
                 <span className="code-window-dot" />
                 <span className="code-window-dot" />
@@ -217,10 +229,9 @@ function App() {
           </div>
         </section>
 
-        <section id="education" className="section alt">
+        <section id="education" className="section alt alt--cool">
           <div className="container">
             <div className="section-head">
-              <span className="section-label">01 — Background</span>
               <h2>Education</h2>
             </div>
             <div className="grid two">
@@ -240,18 +251,36 @@ function App() {
 
         <section id="experience" className="section">
           <div className="container">
-            <div className="section-head">
-              <span className="section-label">02 — Experience</span>
-              <h2>Where I&apos;ve shipped</h2>
-              <p>Production engineering with measurable customer and platform impact.</p>
+            <div className="section-head section-head--experience">
+              <h2>Experience</h2>
+              <p className="experience-intro">
+                I gravitate toward ownership with guardrails: customer impact first, accessibility
+                and testing as habits rather than afterthoughts, and clear collaboration with product
+                and QA when tradeoffs show up. At JPMorgan Chase, that translated to end-to-end work
+                on Digital Self Service. I built with TypeScript and React across web and hybrid
+                mobile, connected UI to services, and released in step with Agile squads as priorities
+                shifted. My internship on the same team used a smaller surface but the same bar. It
+                sharpened how I approach API-backed work, iteration speed, and what production-ready
+                means when compliance and customer trust are non-negotiable.
+              </p>
             </div>
-            <div className="grid two">
+            <div className="experience-doc">
               {experiences.map((item) => (
-                <article key={`${item.role}-${item.duration}`} className="card timeline-card">
-                  <p className="card-meta">{item.duration}</p>
-                  <h3>{item.role}</h3>
-                  <p className="card-sub">{item.company}</p>
-                  <ul>
+                <article key={`${item.role}-${item.duration}`} className="experience-block">
+                  <header className="experience-block-head">
+                    <div className="experience-block-primary">
+                      <h3 className="experience-role">{item.role}</h3>
+                      <p className="experience-company-line">
+                        {item.company}{' '}
+                        <span className="experience-sep" aria-hidden="true">
+                          ·
+                        </span>{' '}
+                        {item.location}
+                      </p>
+                    </div>
+                    <p className="experience-dates">{item.duration}</p>
+                  </header>
+                  <ul className="experience-bullets">
                     {item.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
@@ -262,28 +291,49 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section alt">
+        <section id="projects" className="section alt alt--sage">
           <div className="container">
             <div className="section-head">
-              <span className="section-label">03 — Selected work</span>
               <h2>Projects</h2>
-              <p>From full-stack apps to research-style ML experiments.</p>
+              <p>
+                Highlights from{' '}
+                <a href="https://github.com/shreyasethi23" target="_blank" rel="noreferrer">
+                  my GitHub
+                </a>
+                : shipping UIs and services, notebook-backed ML research, and tools like semantic
+                search and fairness-focused NLP.
+              </p>
             </div>
-            <div className="grid two">
+            <div className="grid two projects-grid">
               {projects.map((project) => (
-                <article key={project.title} className="card project">
+                <article
+                  key={project.title}
+                  className={`card project${project.featured ? ' project--featured' : ''}`}
+                >
+                  <p className="project-eyebrow">{project.eyebrow}</p>
                   <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
+                  <p className="project-summary">{project.summary}</p>
                   <div className="chips">
                     {project.tech.map((tech) => (
                       <span key={tech}>{tech}</span>
                     ))}
                   </div>
-                  {project.link ? (
-                    <a href={project.link} target="_blank" rel="noreferrer">
-                      View repository →
-                    </a>
-                  ) : null}
+                  <div className="project-foot">
+                    {project.link ? (
+                      <a
+                        className="project-link"
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open repository ${githubRepoPath(project.link)} on GitHub`}
+                      >
+                        <span className="project-link-label">GitHub</span>
+                        <span className="project-link-path">{githubRepoPath(project.link)}</span>
+                      </a>
+                    ) : (
+                      <p className="project-private">Repository not public</p>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
@@ -293,9 +343,12 @@ function App() {
         <section id="skills" className="section">
           <div className="container">
             <div className="section-head">
-              <span className="section-label">04 — Toolkit</span>
               <h2>Skills</h2>
-              <p>Stack I use to design interfaces, ship APIs, and train or evaluate models.</p>
+              <p>
+                <strong className="section-em">SWE:</strong> interfaces, design systems thinking, and
+                services. <strong className="section-em">MLE:</strong> PyTorch, NLP, retrieval, and
+                metrics that match the product question.
+              </p>
             </div>
             <div className="grid two skill-grid">
               {skillGroups.map((group) => (
@@ -312,19 +365,22 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section alt">
+        <section id="contact" className="section alt alt--cool">
           <div className="container">
             <div className="section-head">
-              <span className="section-label">05 — Contact</span>
               <h2>Let&apos;s talk</h2>
+              <p>
+                Whether the role is mostly SWE, mostly ML, or a mix, I&apos;d like to hear what you are
+                building.
+              </p>
             </div>
             <div className="contact-shell">
               <article className="card contact-card">
-                <p className="contact-kicker">Open to SWE and MLE roles</p>
-                <h3>Product-driven teams welcome</h3>
+                <p className="contact-kicker">SWE, MLE, or hybrid</p>
+                <h3>Teams shipping real products + models</h3>
                 <p>
-                  I&apos;m interested in roles where I can contribute across frontend engineering and
-                  machine learning systems.
+                  I&apos;m looking for roles where engineering quality and ML rigor both matter: clear
+                  APIs, thoughtful UX, and models you can measure and trust.
                 </p>
                 <div className="contact-methods">
                   <p>

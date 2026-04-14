@@ -8,8 +8,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "dev": "vite --port 5190 --strictPort",
-    "dev:reset": "vite --port 5190 --strictPort --force",
+    "dev": "vite",
+    "dev:lan": "vite --host",
+    "dev:reset": "vite --force",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
