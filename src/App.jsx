@@ -45,6 +45,7 @@ const projects = [
     summary:
       'Full-stack app to index local files and search with text or images: React and TypeScript UI, FastAPI and Redis-backed workers, FAISS and SQLite for vectors and metadata.',
     tech: ['React', 'TypeScript', 'FastAPI', 'Redis', 'FAISS'],
+    link: 'https://github.com/snehanshu-raj/FindLy',
   },
   {
     title: 'Semantic Book Recommender',
