@@ -99,8 +99,6 @@ const projects = [
 const skillGroups = [
   {
     title: 'Frontend',
-    variant: 'frontend',
-    blurb: 'Interfaces, components, and polish that hold up in production.',
     items: [
       'React 19',
       'TypeScript',
@@ -114,8 +112,6 @@ const skillGroups = [
   },
   {
     title: 'Backend',
-    variant: 'backend',
-    blurb: 'Services, APIs, and data paths you can reason about and extend.',
     items: [
       'Python',
       'FastAPI',
@@ -132,8 +128,6 @@ const skillGroups = [
   },
   {
     title: 'AI / ML',
-    variant: 'ml',
-    blurb: 'Models, retrieval, and metrics aligned with the product question.',
     items: [
       'PyTorch',
       'NLP and LLMs',
@@ -147,8 +141,6 @@ const skillGroups = [
   },
   {
     title: 'Testing and Tools',
-    variant: 'tools',
-    blurb: 'Confidence in changes and a workflow that scales with the team.',
     items: [
       'Unit Testing',
       'Component Testing',
@@ -348,37 +340,24 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section section-skills" aria-labelledby="skills-heading">
+        <section id="skills" className="section alt alt--sage" aria-labelledby="skills-heading">
           <div className="container">
-            <div className="section-head section-head--skills">
+            <div className="section-head">
               <h2 id="skills-heading">Skills</h2>
               <p>
-                A map of what I reach for most often: from UI and APIs to models, retrieval, and the
-                tooling that keeps quality high.
+                Tools and technologies I use across interfaces, services, models, and shipping with
+                confidence.
               </p>
             </div>
-            <div className="skills-bento">
-              {skillGroups.map((group, index) => (
-                <article
-                  key={group.title}
-                  className={`skills-pillar skills-pillar--${group.variant}`}
-                >
-                  <div className="skills-pillar-head">
-                    <span className="skills-pillar-index" aria-hidden="true">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="skills-pillar-titles">
-                      <h3>{group.title}</h3>
-                      <p className="skills-pillar-blurb">{group.blurb}</p>
-                    </div>
-                  </div>
-                  <ul className="skills-tag-list" role="list">
+            <div className="grid two skills-grid">
+              {skillGroups.map((group) => (
+                <article key={group.title} className="card skills-card">
+                  <h3>{group.title}</h3>
+                  <div className="chips">
                     {group.items.map((skill) => (
-                      <li key={skill}>
-                        <span className="skills-tag">{skill}</span>
-                      </li>
+                      <span key={skill}>{skill}</span>
                     ))}
-                  </ul>
+                  </div>
                 </article>
               ))}
             </div>
@@ -480,17 +459,6 @@ function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Shreya Sethi</p>
-          <div className="footer-meta">
-            <p className="footer-note">
-              React · Vite · CSS · bundle {__SITE_UPDATED__}
-            </p>
-            {import.meta.env.DEV ? (
-              <p className="footer-note footer-dev-hint">
-                Local dev: open the exact URL from the terminal (port 5190). Hard refresh (Cmd+Shift+R)
-                if the page looks outdated.
-              </p>
-            ) : null}
-          </div>
         </div>
       </footer>
     </div>
