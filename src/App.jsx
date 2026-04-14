@@ -99,6 +99,8 @@ const projects = [
 const skillGroups = [
   {
     title: 'Frontend',
+    variant: 'frontend',
+    blurb: 'Interfaces, components, and polish that hold up in production.',
     items: [
       'React 19',
       'TypeScript',
@@ -112,6 +114,8 @@ const skillGroups = [
   },
   {
     title: 'Backend',
+    variant: 'backend',
+    blurb: 'Services, APIs, and data paths you can reason about and extend.',
     items: [
       'Python',
       'FastAPI',
@@ -128,6 +132,8 @@ const skillGroups = [
   },
   {
     title: 'AI / ML',
+    variant: 'ml',
+    blurb: 'Models, retrieval, and metrics aligned with the product question.',
     items: [
       'PyTorch',
       'NLP and LLMs',
@@ -141,6 +147,8 @@ const skillGroups = [
   },
   {
     title: 'Testing and Tools',
+    variant: 'tools',
+    blurb: 'Confidence in changes and a workflow that scales with the team.',
     items: [
       'Unit Testing',
       'Component Testing',
@@ -340,25 +348,37 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section">
+        <section id="skills" className="section section-skills" aria-labelledby="skills-heading">
           <div className="container">
-            <div className="section-head">
-              <h2>Skills</h2>
+            <div className="section-head section-head--skills">
+              <h2 id="skills-heading">Skills</h2>
               <p>
-                <strong className="section-em">SWE:</strong> interfaces, design systems thinking, and
-                services. <strong className="section-em">MLE:</strong> PyTorch, NLP, retrieval, and
-                metrics that match the product question.
+                A map of what I reach for most often: from UI and APIs to models, retrieval, and the
+                tooling that keeps quality high.
               </p>
             </div>
-            <div className="grid two skill-grid">
-              {skillGroups.map((group) => (
-                <article key={group.title} className="card skill-card">
-                  <h3>{group.title}</h3>
-                  <div className="chips">
-                    {group.items.map((skill) => (
-                      <span key={skill}>{skill}</span>
-                    ))}
+            <div className="skills-bento">
+              {skillGroups.map((group, index) => (
+                <article
+                  key={group.title}
+                  className={`skills-pillar skills-pillar--${group.variant}`}
+                >
+                  <div className="skills-pillar-head">
+                    <span className="skills-pillar-index" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div className="skills-pillar-titles">
+                      <h3>{group.title}</h3>
+                      <p className="skills-pillar-blurb">{group.blurb}</p>
+                    </div>
                   </div>
+                  <ul className="skills-tag-list" role="list">
+                    {group.items.map((skill) => (
+                      <li key={skill}>
+                        <span className="skills-tag">{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
@@ -370,7 +390,7 @@ function App() {
             <header className="contact-intro-band">
               <h2>Let&apos;s talk</h2>
               <p className="contact-intro-text">
-                Thanks for spending time here. I&apos;m genuinely glad you stopped by—if anything
+                Thanks for spending time here. I&apos;m genuinely glad you stopped by. If anything
                 resonated or you&apos;d simply like to say hello, I&apos;d love to hear from you. Use
                 the links or send a note below; I read everything and reply when I can.
               </p>
@@ -460,9 +480,17 @@ function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Shreya Sethi</p>
-          <p className="footer-note">
-            React · Vite · CSS · bundle {__SITE_UPDATED__}
-          </p>
+          <div className="footer-meta">
+            <p className="footer-note">
+              React · Vite · CSS · bundle {__SITE_UPDATED__}
+            </p>
+            {import.meta.env.DEV ? (
+              <p className="footer-note footer-dev-hint">
+                Local dev: open the exact URL from the terminal (port 5190). Hard refresh (Cmd+Shift+R)
+                if the page looks outdated.
+              </p>
+            ) : null}
+          </div>
         </div>
       </footer>
     </div>

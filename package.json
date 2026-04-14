@@ -9,6 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
+    "dev:fresh": "rm -rf node_modules/.vite && vite --force",
     "dev:lan": "vite --host",
     "dev:reset": "vite --force",
     "build": "vite build",
